@@ -3,54 +3,54 @@ import project2 from "../assets/assets/projects/project-2.jpg";
 import project3 from "../assets/assets/projects/project-3.jpg";
 import project4 from "../assets/assets/projects/project-4.jpg";
 
-export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
+export const HERO_CONTENT = `I am a dedicated Data Scientist with a solid background in Machine Learning, Data Science, and Subject Matter Expertise (SME). My experience as a Machine Learning and Data Science intern, combined with my role as an SME, has equipped me with the skills to create highly efficient models and effectively communicate with stakeholders to understand and address their business challenges. I have consistently delivered projects on time, ensuring that solutions align with business objectives. My goal is to leverage this diverse skill set to develop innovative solutions that not only drive business growth but also deliver exceptional user experiences.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+export const ABOUT_TEXT = `I am a dedicated and versatile Data Scientist with a passion for creating efficient and impactful data-driven solutions. With around 14 months of experience in project management and as a Subject Matter Expert (SME), I have honed my ability to build effective models and deliver results that align with business goals. My expertise spans front-end technologies like React and back-end technologies such as MySQL and Django. My journey in data science began with a deep curiosity for uncovering patterns and insights within data, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of my work in data science, I enjoy staying active, exploring new technologies, and contributing to innovative projects.`;
 
 export const EXPERIENCES = [
   {
-    year: "2023 - Present",
-    role: "Senior Full Stack Developer",
-    company: "Google Inc.",
-    description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["Javascript", "React.js", "Next.js", "mongoDB"],
+    year: "June 2024 - August 2024",
+    role: "Machine Learning  Intern",
+    company: "The Encryptix.",
+    description: `I developed two major projects using NLTK (Natural Language Toolkit) focused on SMS Spam Detection and Movie Genre Prediction. These projects involved learning and implementing key concepts like TF-IDF, Stemmer, Punkt, and the Multinomial Naive Bayes model. I contributed these projects to open-source platforms like Kaggle and maintained a dedicated GitHub repository for ongoing development and collaboration.`,
+    technologies: ["Python", "NLTK", "TF-IDF", "Naive Bayes"],
   },
   {
-    year: "2022 - 2023",
-    role: "Frontend Developer",
-    company: "Adobe",
-    description: `Designed and developed user interfaces for web applications using Next.js and React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.`,
-    technologies: ["HTML", "CSS", "Vue.js", "mySQL"],
+    year: "June 2024 - July 2024",
+    role: "Data Science and Business Analyst Intern",
+    company: "The Spark Foundation",
+    description: `I successfully developed and implemented various data science models, including Linear Regression and Logistic Regression, to solve complex problems using supervised machine learning algorithms. I gained extensive hands-on experience in business analytics, applying data-driven methodologies to support decision-making processes and deliver actionable business insights and solutions..`,
+    technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
   },
   {
-    year: "2021 - 2022",
-    role: "Full Stack Developer",
-    company: "Facebook",
-    description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
-    technologies: ["Python", "Svelte", "Three.js", "Postgres"],
+    year: "May 2023 - Jan 2024",
+    role: "Project Management Intern",
+    company: "Brainheaters",
+    description: `I successfully led a team in content creation, social media management, and community engagement throughout the entire product lifecycle. I managed and expanded a community of over 75,000 students across 385 engineering colleges. Additionally, I created study materials and educational videos on AI, Machine Learning, and other computer science subjects to support and engage this large student community.`,
+    technologies: ["Clickup", "Slack", "Jibble", "AI"],
   },
   {
-    year: "2020 - 2021",
-    role: "Software Engineer",
-    company: "Paypal",
-    description: `Contributed to the development of web applications using JavaScript, React.js, and Node.js. Managed databases and implemented data storage solutions using MongoDB. Worked closely with product managers to prioritize features and enhancements.`,
-    technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
+    year: "April 2023 - Feb 2024",
+    role: "Data Science Subject Matter Expert",
+    company: "Transcurators- the content factory",
+    description: `I created personalized Data Science-based questions focused on statistical analysis and machine learning algorithms for various organizations. I reviewed and validated content to ensure accuracy and appropriate difficulty levels, ensuring that it met the specific needs of each organization. Additionally, I effectively communicated with stakeholders to understand their requirements, consistently delivering projects on time and within budget.`,
+    technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
   },
 ];
 
 export const PROJECTS = [
   {
-    title: "E-Commerce Website",
+    title: "Disaster Classification",
     image: project1,
     description:
-      "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB"],
+      "The Disaster Classification website lets users upload images to identify natural disasters. Using CNN algorithms, the system analyzes the image and classifies the type of disaster, such as hurricanes, wildfires, or floods.",
+    technologies: [ "Python", "TensorFlow", "Django"],
   },
   {
-    title: "Task Management App",
+    title: "Engineering Books",
     image: project2,
     description:
-      "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking.",
+      "The Engineering Book app provides users with free access to a vast collection of engineering textbooks in PDF format. With an easy-to-use interface, users can quickly search for and download textbooks across various engineering disciplines.",
     technologies: ["HTML", "CSS", "Angular", "Firebase"],
   },
   {
@@ -60,17 +60,17 @@ export const PROJECTS = [
       "A personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["HTML", "CSS", "React", "Bootstrap"],
   },
-  {
-    title: "Blogging Platform",
-    image: project4,
-    description:
-      "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-    technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
-  },
+  // {
+  //   title: "Blogging Platform",
+  //   image: project4,
+  //   description:
+  //     "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
+  //   technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
+  // },
 ];
 
 export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
+  address: "Dahisar (East), Mumbai, India ",
+  phoneNo: "+91 8451089128 ",
+  email: "sidharthsaholiya@gmail.com",
 };

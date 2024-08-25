@@ -1,6 +1,5 @@
 import { RiReactjsLine } from "react-icons/ri";   // React.js icon
 import { SiPython } from "react-icons/si";        // Python icon
-import { SiFlask } from "react-icons/si";         // Flask icon
 import { SiDjango } from "react-icons/si";        // Django icon
 import { SiPostgresql } from "react-icons/si";    // SQL/PostgreSQL icon
 import { motion } from "framer-motion";
@@ -49,15 +48,6 @@ const Technology = () => {
           aria-label="Python"
         >
           <SiPython className="text-7xl text-yellow-500" /> {/* Yellow for Python */}
-        </motion.div>
-        <motion.div 
-          variants={iconVariants(5)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-          aria-label="Flask"
-        >
-          <SiFlask className="text-7xl text-white" /> {/* White for Flask */}
         </motion.div>
         <motion.div 
           variants={iconVariants(2)}
