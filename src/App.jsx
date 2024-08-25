@@ -5,6 +5,8 @@ import Technology from "./components/Technology";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Education from "./components/Education";
+// import Interactive from "./components/Interactive";
 
 const App = () => {
   return (
@@ -16,10 +18,12 @@ const App = () => {
         <Navbar />
         <Hero />
         <About /> 
+        <Education/>
         <Technology/>
         <Experience/>
         <Projects/>
         <Contact/>
+        {/* <Interactive/> */}
       </div>
     </div>
   );

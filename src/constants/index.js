@@ -73,4 +73,5 @@ export const CONTACT = {
   address: "Dahisar (East), Mumbai, India ",
   phoneNo: "+91 8451089128 ",
   email: "sidharthsaholiya@gmail.com",
+  cvUrl: "https://drive.google.com/file/d/1qYYHuYivBZ7gRnFvm27M67EZLMtljuiq/view?usp=sharing"
 };
