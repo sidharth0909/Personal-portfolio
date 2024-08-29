@@ -1,16 +1,19 @@
 import logo from "../assets/assets/Sidlogo.png";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaTwitterSquare } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitterSquare, FaYoutube } from "react-icons/fa";
 
 const Navbar = () => {
   return (
     <nav className="mb-20 flex items-center justify-between py-6">
-      <div className="flex flex-shrink-0 items-center">
-        <img className="mx-2 w-10" src={logo} alt="logo" />
+      <div className="m-8 flex items-center justify-center gap-8 text-lg"> {/* Added navigation links */}
+        <a href="#Home" className="hover:text-cyan-400">Home</a>
+        <a href="#about-me" className="hover:text-cyan-400">About Me</a>
+        <a href="#education" className="hover:text-cyan-400">Education</a>
+        <a href="#technology" className="hover:text-cyan-400">Technology</a>
+        <a href="#experience" className="hover:text-cyan-400">Experience</a>
+        <a href="#project" className="hover:text-cyan-400">Projects</a>
+        <a href="#contact" className="hover:text-cyan-400">Get in Touch</a>
       </div>
-      <div className="m-8 flex items-center justify-center gap-4 text-2xl"> {/* Corrected typo in className */}
+      <div className="m-8 flex items-center justify-center gap-4 text-2xl">
         <a href="https://www.linkedin.com/in/sidharthsaholiya/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
@@ -29,5 +32,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
-//Here i have added the links to my social media accounts and also added the logo to the navbar.

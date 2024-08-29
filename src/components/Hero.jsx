@@ -14,6 +14,8 @@ const container = (delay) => ({
 
 const Hero = () => {
     return (
+        <section id="Home">
+
         <div className="border-b border-neutral-900 pb-4 lg:mb-36">
             <div className="flex flex-wrap">
                 <div className="w-full lg:w-1/2">
@@ -47,6 +49,7 @@ const Hero = () => {
                 </div>
             </div>
         </div>
+    </section>
     );
 };
 

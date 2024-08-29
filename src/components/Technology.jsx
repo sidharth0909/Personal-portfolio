@@ -19,12 +19,14 @@ const iconVariants = (duration) => ({
 
 const Technology = () => {
   return (
+    <section id="technology" className="pt-20" >
+
     <div className="border-b border-neutral-800 pb-24">
       <motion.h2 
       whileInView= {{opacity: 1, y:0}}
       initial={{opacity:0, y: -100}}
       transition={{duration: 1.5}}
-      className="my-20 text-center text-4xl">
+      className="my-10 text-center text-4xl font-bold">
         Technology
       </motion.h2>
       <motion.div 
@@ -37,7 +39,7 @@ const Technology = () => {
           initial="initial"
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
+          >
           <RiReactjsLine className="text-7xl text-cyan-400" /> {/* Cyan for React */}
         </motion.div>
         <motion.div 
@@ -46,7 +48,7 @@ const Technology = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
           aria-label="Python"
-        >
+          >
           <SiPython className="text-7xl text-yellow-500" /> {/* Yellow for Python */}
         </motion.div>
         <motion.div 
@@ -55,7 +57,7 @@ const Technology = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
           aria-label="Django"
-        >
+          >
           <SiDjango className="text-7xl text-green-500" /> {/* Green for Django */}
         </motion.div>
         <motion.div 
@@ -64,11 +66,12 @@ const Technology = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
           aria-label="PostgreSQL"
-        >
+          >
           <SiPostgresql className="text-7xl text-blue-500" /> {/* Blue for PostgreSQL */}
         </motion.div>
       </motion.div>
     </div>
+  </section>
   );
 };
 

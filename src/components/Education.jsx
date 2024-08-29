@@ -5,30 +5,32 @@ const educationData = [
     period: "2017 - 2019",
     degree: "SSC",
     institution: "Poorna Prajna High School",
-    description: "Focused on Science and Mathematics. Participated in various science fairs and coding competitions.",
+    description: "Focused on Science and Mathematics. Participated in various science fairs and Mathematics competitions.",
   },
   {
     period: "2019 - 2021",
     degree: "HSC",
     institution: "TP bhatia College of Science and Technology",
-    description: "Specialized in Computer Science Engineering. Developed multiple projects and gained expertise in full-stack development.",
+    description: "Specialized in Electronics. Throughout the course I understood Chemistry, Physics and Mathematics.",
   },
   {
     period: "2021 - Present",
-    degree: "Bachelor's of engineering in Information Technology",
+    degree: "BE IT",
     institution: "Atharva College of Engineering",
-    description: "Currently pursuing a master's degree with a focus on AI and Machine Learning. Working on advanced research projects.",
+    description: "Currently pursuing a Bachelor's degree with a focus on Information Technology. Working on projects like Machine Learning, Deep Learning and Data Analytics.",
   },
 ];
 
 const Education = () => {
-  return (
+  return ( <section id="education" className="pt-20">
+
+  
     <div className="border-b border-neutral-900 pb-8">
       <motion.h2 
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        className="my-20 text-center text-5xl font-bold"
+        className="my-10 text-center text-5xl font-bold"
       >
         Education
       </motion.h2>
@@ -53,6 +55,7 @@ const Education = () => {
         ))}
       </div>
     </div>
+    </section>
   );
 };
 
