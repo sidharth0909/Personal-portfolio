@@ -1,11 +1,11 @@
-import project1 from "../assets/assets/projects/project-1.jpg";
-import project2 from "../assets/assets/projects/project-2.jpg";
+import project1 from "../assets/assets/projects/Pro-1.png";
+import project2 from "../assets/assets/projects/pro-2.png";
 import project3 from "../assets/assets/projects/project-3.jpg";
 import project4 from "../assets/assets/projects/project-4.jpg";
 
-export const HERO_CONTENT = ``;
+export const HERO_CONTENT = `I am here to help you to derived insights from your data and make data-driven decisions.With a keen eye for detail and a passion for problem-solving, I turn complex data into clear, strategic solutions that empower you to achieve your goals.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile Data Scientist with a passion for creating efficient and impactful data-driven solutions. With around 14 months of experience in project management and as a Subject Matter Expert (SME), I have honed my ability to build effective models and deliver results that align with business goals. My expertise spans front-end technologies like React and back-end technologies such as MySQL and Django. My journey in data science began with a deep curiosity for uncovering patterns and insights within data, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of my work in data science, I enjoy staying active, exploring new technologies, and contributing to innovative projects.`;
+export const ABOUT_TEXT = `I am a dedicated and versatile Data Scientist with a passion for creating efficient and impactful data-driven solutions. With around 14 months of experience in project management and as a Subject Matter Expert (SME), I have honed my ability to build effective models and deliver results that align with business goals. My expertise spans front-end technologies like React and back-end technologies such as MySQL and Django. Outside of my work in data science, I enjoy staying active, exploring new technologies, and contributing to innovative projects.`;
 
 export const EXPERIENCES = [
   {
@@ -47,7 +47,7 @@ export const PROJECTS = [
     technologies: [ "Python", "TensorFlow", "Django"],
   },
   {
-    title: "Engineering Books",
+    title: "Engineering Books (Currently in Development)",
     image: project2,
     description:
       "The Engineering Book app provides users with free access to a vast collection of engineering textbooks in PDF format. With an easy-to-use interface, users can quickly search for and download textbooks across various engineering disciplines.",
