@@ -1,7 +1,5 @@
 import { HERO_CONTENT } from "../constants";
-import profilepic from "../assets/assets/kevinRushProfile.png";
 import { motion } from "framer-motion";
-import { GiDuration } from "react-icons/gi";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -17,6 +15,7 @@ const Hero = () => {
     <section id="Home" className="mt-8"> {/* Added margin top for spacing */}
       <div className="border-b border-neutral-900 pb-4 lg:mb-36">
         <div className="flex flex-wrap">
+          {/* Left Content (Text) */}
           <div className="w-full lg:w-1/2">
             <div className="flex flex-col items-center lg:items-start">
               <motion.h1
@@ -39,20 +38,23 @@ const Hero = () => {
                 variants={container(1)}
                 initial="hidden"
                 animate="visible"
-                className="my-2 max-w-xl py-6 font-light tracking-tighter text-white"
+                className="my-2 max-w-xl py-6 font-light tracking-tighter text-white text-center lg:text-left"
               >
                 {HERO_CONTENT}
               </motion.p>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 lg:p-8">
-            <div className="flex justify-center">
+
+          {/* Right Content (GIF) */}
+          <div className="w-full lg:w-1/2 lg:p-8 mt-12">
+            <div className="flex justify-center lg:justify-end items-center">
               <motion.img
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 1.2 }}
-                src={profilepic}
-                alt="Sidharth Saholiya"
+                src="https://media0.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif"
+                alt="Coding GIF"
+                className="max-w-xs lg:max-w-md rounded-lg shadow-lg" // Adjusted size and added rounded corners
               />
             </div>
           </div>
