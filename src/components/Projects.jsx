@@ -1,55 +1,60 @@
-import { PROJECTS } from "../constants";
-import { motion } from "framer-motion";
+import { useTheme } from '../ThemeContext';
+import { motion } from 'framer-motion';
+import { PROJECTS } from '../constants';
 
 const Projects = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <section id="project" className="pt-20"> {/* Added padding to the top of the section */}
-      <div className="border-b border-neutral-900 pb-4">
-        <motion.h2 
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: -20 }} // Adjusted initial y position
-          transition={{ duration: 0.5 }}
-          className="my-10 text-center text-4xl font-bold"
-        >
+    <section className="min-h-screen flex items-center justify-center p-8">
+      <div className="max-w-4xl w-full">
+        <h2 className={`text-4xl font-bold mb-12 text-center ${
+          isDarkMode ? 'text-white' : 'text-black'
+        }`}>
           Projects
-        </motion.h2>
-        <div>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {PROJECTS.map((project, index) => (
-            <div key={index} className="mb-8 flex flex-wrap lg:justify-center mt-20">
-              <motion.div 
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: -100 }}
-                transition={{ duration: 1 }}
-                className="w-full lg:w-1/4"
-              >
-                <img
-                  src={project.image}
-                  width={150}
-                  height={150}
-                  alt={project.title}
-                  className="mb-6 rounded"
-                />
-              </motion.div>
-              <motion.div 
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: 100 }}
-                transition={{ duration: 1 }}
-                className="w-full max-w-xl lg:w-3/4"
-              >
-                <h3 className="mb-2 text-xl font-semibold">{project.title}</h3>
-                <p className="mb-4 text-neutral-400">{project.description}</p>
-                <div className="flex flex-wrap">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              className={`rounded-lg overflow-hidden shadow-xl ${
+                isDarkMode ? 'bg-gray-900' : 'bg-gray-100'
+              }`}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className={`text-xl font-semibold mb-2 ${
+                  isDarkMode ? 'text-white' : 'text-black'
+                }`}>
+                  {project.title}
+                </h3>
+                <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="mr-2 mt-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800"
+                      className={`px-3 py-1 rounded-full text-sm ${
+                        isDarkMode
+                          ? 'bg-gray-800 text-gray-300'
+                          : 'bg-gray-200 text-gray-700'
+                      }`}
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

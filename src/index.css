@@ -8,3 +8,6 @@
 :root{
   font-family: "Inter", sans-serif;
 }
+body {
+  @apply transition-colors duration-300;
+}

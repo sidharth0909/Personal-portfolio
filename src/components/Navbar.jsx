@@ -1,97 +1,88 @@
-import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaTwitterSquare, FaYoutube, FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
+import { useTheme } from '../ThemeContext';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu visibility
-  const [activeSection, setActiveSection] = useState('Home'); // State to track active section
+  const { isDarkMode, toggleTheme, activeSection, setActiveSection } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'education', label: 'Education' },
+    { id: 'technology', label: 'Technology' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
+  ];
 
-  // Function to handle scroll spy
-  const handleScroll = () => {
-    const sections = document.querySelectorAll('section');
-    const scrollPosition = window.scrollY + window.innerHeight / 2; // Update to middle of the viewport
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        setActiveSection(section.getAttribute('id'));
-      }
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  // Close mobile menu when a link is clicked
-  const handleLinkClick = () => {
-    if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
+  const handleNavClick = (sectionId) => {
+    setActiveSection(sectionId);
+    setIsMenuOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-neutral-900 text-neutral-300 shadow-md">
-      <div className="flex items-center justify-between py-4 px-6">
-        {/* Hamburger Menu Icon for Mobile */}
-        <div className="md:hidden">
-          <button onClick={toggleMobileMenu} className="text-2xl focus:outline-none">
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+    <nav className={`fixed w-full z-50 dark:bg-black bg-white shadow-md`}>
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex justify-between items-center">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full dark:text-white text-black"
+            aria-label="Toggle dark mode"
+          >
+            {isDarkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`text-lg font-medium transition-colors ${
+                  activeSection === item.id
+                    ? 'dark:text-white text-black font-bold'
+                    : 'dark:text-gray-400 text-gray-600 hover:dark:text-white hover:text-black'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden dark:text-white text-black"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
 
-        {/* Desktop and Mobile Navigation Links */}
-        <div className={`md:flex items-center justify-center gap-8 text-lg ${isMobileMenuOpen ? 'block' : 'hidden'} md:block bg-neutral-900 md:bg-transparent p-4 md:p-0 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto`}>
-          <a href="#Home" onClick={handleLinkClick} className={`hover:text-cyan-400 block md:inline ${activeSection === 'Home' ? 'text-cyan-400' : 'text-gray-800'}`}>Home</a>
-          <a href="#about-me" onClick={handleLinkClick} className={`hover:text-cyan-400 block md:inline ${activeSection === 'about-me' ? 'text-cyan-400' : 'text-gray-800'}`}>About Me</a>
-          <a href="#education" onClick={handleLinkClick} className={`hover:text-cyan-400 block md:inline ${activeSection === 'education' ? 'text-cyan-400' : 'text-gray-800'}`}>Education</a>
-          <a href="#technology" onClick={handleLinkClick} className={`hover:text-cyan-400 block md:inline ${activeSection === 'technology' ? 'text-cyan-400' : 'text-gray-800'}`}>Technology</a>
-          <a href="#experience" onClick={handleLinkClick} className={`hover:text-cyan-400 block md:inline ${activeSection === 'experience' ? 'text-cyan-400' : 'text-gray-800'}`}>Experience</a>
-          <a href="#project" onClick={handleLinkClick} className={`hover:text-cyan-400 block md:inline ${activeSection === 'project' ? 'text-cyan-400' : 'text-gray-800'}`}>Projects</a>
-          <a href="#contact" onClick={handleLinkClick} className={`hover:text-cyan-400 block md:inline ${activeSection === 'contact' ? 'text-cyan-400' : 'text-gray-800'}`}>Get in Touch</a>
-          
-          {/* Social Media Icons for Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="flex items-center justify-center gap-4 text-2xl mt-4">
-              <a href="https://www.linkedin.com/in/sidharthsaholiya/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:brightness-125 transition duration-300">
-                <FaLinkedin />
-              </a>
-              <a href="https://github.com/sidharth0909" target="_blank" rel="noopener noreferrer" className="text-white hover:brightness-125 transition duration-300">
-                <FaGithub />
-              </a>
-              <a href="https://x.com/Sidharth0909" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:brightness-125 transition duration-300">
-                <FaTwitterSquare />
-              </a>
-              <a href="https://www.youtube.com/@sidharthsaholiya2622" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:brightness-125 transition duration-300">
-                <FaYoutube />
-              </a>
-            </div>
-          )}
-        </div>
-
-        {/* Social Media Icons for Desktop */}
-        <div className="hidden md:flex items-center justify-center gap-4 text-2xl">
-          <a href="https://www.linkedin.com/in/sidharthsaholiya/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:brightness-125 transition duration-300">
-            <FaLinkedin />
-          </a>
-          <a href="https://github.com/sidharth0909" target="_blank" rel="noopener noreferrer" className="text-white hover:brightness-125 transition duration-300">
-            <FaGithub />
-          </a>
-          <a href="https://x.com/Sidharth0909" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:brightness-125 transition duration-300">
-            <FaTwitterSquare />
-          </a>
-          <a href="https://www.youtube.com/@sidharthsaholiya2622" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:brightness-125 transition duration-300">
-            <FaYoutube />
-          </a>
-        </div>
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden mt-4 pb-4 space-y-4 dark:bg-black bg-white"
+          >
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`block w-full text-left py-2 text-lg ${
+                  activeSection === item.id
+                    ? 'dark:text-white text-black font-bold'
+                    : 'dark:text-gray-400 text-gray-600'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </motion.div>
+        )}
       </div>
     </nav>
   );

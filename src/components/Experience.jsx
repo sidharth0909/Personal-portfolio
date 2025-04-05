@@ -1,75 +1,76 @@
-import React, { useState } from "react";
-import { EXPERIENCES } from "../constants";
-import { motion } from "framer-motion";
+import { useTheme } from '../ThemeContext';
+import { motion } from 'framer-motion';
+import { EXPERIENCES } from '../constants';
+import { useState } from 'react';
 
 const Experience = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null); // State to control expanded experience
-
-  const toggleDescription = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index); // Toggle between expanding and collapsing
-  };
+  const { isDarkMode } = useTheme();
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   return (
-    <section id="experience" className="pt-20">
-      <div className="border-b border-neutral-900 pb-8">
-        <motion.h2
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: -100 }}
-          transition={{ duration: 0.5 }}
-          className="my-10 text-center text-4xl font-bold"
-        >
+    <section className="min-h-screen flex items-center justify-center p-8">
+      <div className="max-w-4xl w-full">
+        <h2 className={`text-4xl font-bold mb-12 text-center ${
+          isDarkMode ? 'text-white' : 'text-black'
+        }`}>
           Experience
-        </motion.h2>
-        <div>
-          {EXPERIENCES.map((experience, index) => (
-            <div
+        </h2>
+
+        <div className="space-y-8">
+          {EXPERIENCES.map((exp, index) => (
+            <motion.div
               key={index}
-              className="mb-8 flex flex-wrap lg:justify-center mt-20"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className={`p-6 rounded-lg ${
+                isDarkMode ? 'bg-gray-900' : 'bg-gray-100'
+              }`}
             >
-              <motion.div
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: -100 }}
-                transition={{ duration: 1 }}
-                className="w-full lg:w-1/4"
-              >
-                <p className="mb-2 text-sm text-neutral-400">
-                  {experience.year}
-                </p>
-              </motion.div>
-              <motion.div
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: 100 }}
-                transition={{ duration: 1 }}
-                className="w-full max-w-xl lg:w-3/4"
-              >
-                <h6 className="mb-2 font-semibold">
-                  {experience.role} -{" "}
-                  <span className="text-sm text-purple-100">
-                    {experience.company}
-                  </span>
-                </h6>
-                <p className="mb-4 text-neutral-400">
-                  {/* Toggle description based on the state */}
-                  {expandedIndex === index
-                    ? experience.description
-                    : `${experience.description.substring(0, 100)}...`} {/* Adjust the substring length as needed */}
-                  <button
-                    onClick={() => toggleDescription(index)}
-                    className="text-cyan-500 hover:underline ml-2"
-                  >
-                    {expandedIndex === index ? "Show Less" : "Read More"} {/* Toggle button text */}
-                  </button>
-                </p>
-                {experience.technologies.map((tech, techIndex) => (
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className={`text-xl font-semibold ${
+                    isDarkMode ? 'text-white' : 'text-black'
+                  }`}>
+                    {exp.role}
+                  </h3>
+                  <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {exp.company}
+                  </p>
+                </div>
+                <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {exp.year}
+                </span>
+              </div>
+
+              <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                {expandedIndex === index ? exp.description : `${exp.description.substring(0, 100)}...`}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {exp.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800"
+                    className={`px-3 py-1 rounded-full text-sm ${
+                      isDarkMode 
+                        ? 'bg-gray-800 text-gray-300' 
+                        : 'bg-gray-200 text-gray-700'
+                    }`}
                   >
                     {tech}
                   </span>
                 ))}
-              </motion.div>
-            </div>
+              </div>
+
+              <button
+                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                className={`mt-4 text-sm font-semibold ${
+                  isDarkMode ? 'text-white' : 'text-black'
+                }`}
+              >
+                {expandedIndex === index ? 'Show Less' : 'Read More'}
+              </button>
+            </motion.div>
           ))}
         </div>
       </div>
